@@ -164,7 +164,7 @@ public class SystemModule : LuaRuntimeModule
     {
         var table = new LuaTable
         {
-            ["dir_contents"] = DirContents,
+            ["read_dir"] = DirContents,
             ["file_exists"] = FileExists,
             ["dir_exists"] = DirExists,
             ["read_file_str"] = ReadTextFile,
