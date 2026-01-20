@@ -40,3 +40,8 @@ That's all. The executable will be located at `bin/Release/net10.0/(your platfor
 * [x] Mac OS (Not tested)
 
 #### For developers:
+[Main documentation](https://github.com/Ict00/TtyPack/blob/master/docs/main.md "Docs")
+
+#### Important information for users:
+TtyPack (**FOR NOW**) will create and use `.ttystorage` directory **IN THE SAME DIRECTORY AS EXECUTABLE** to store some data like
+apps' local data and permissions. This will be changed in next updates.
