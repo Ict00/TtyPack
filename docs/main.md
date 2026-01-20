@@ -39,6 +39,8 @@ While most of Lua standart functionality is supported, some stuff like `require`
 * [Permissions](https://github.com/Ict00/TtyPack/blob/master/docs/apis/permission_api.md)
 * [Storage](https://github.com/Ict00/TtyPack/blob/master/docs/apis/storage_api.md)
 * [System](https://github.com/Ict00/TtyPack/blob/master/docs/apis/system_api.md)
+* [Script](https://github.com/Ict00/TtyPack/blob/master/docs/apis/script_api.md)
+
 
 > **`type?` notation means that the argument is optional**. It's important to understand everything described in the `API` docs.
 
