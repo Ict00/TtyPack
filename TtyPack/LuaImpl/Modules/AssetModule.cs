@@ -67,10 +67,12 @@ public class AssetModule : LuaRuntimeModule
             var assetName = context.Arguments[0].Read<string>();
             var assetValue = context.Arguments[1];
             byte[] data = [];
+            AssetType assetType = AssetType.Blob;
 
             if (assetValue.Type == LuaValueType.String)
             {
                 data = Encoding.UTF8.GetBytes(assetValue.Read<string>());
+                assetType = AssetType.TextBlob;
             }
 
             if (assetValue.Type == LuaValueType.LightUserData)
@@ -78,7 +80,7 @@ public class AssetModule : LuaRuntimeModule
                 data = assetValue.Read<byte[]>();
             }
             
-            _assets.Assets.Add(new(assetName, AssetType.Blob, data));
+            _assets.Assets.Add(new(assetName, assetType, data));
             
             return new(context.Return(LuaValue.Nil));
         });
