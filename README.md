@@ -35,8 +35,8 @@ $ dotnet publish
 That's all. The executable will be located at `bin/Release/net10.0/(your platform)/publish/TtyPack`
 
 #### Supported platforms:
-[x] Linux
-[x] Windows (Not tested)
-[x] Mac OS (Not tested)
+* [x] Linux
+* [x] Windows (Not tested)
+* [x] Mac OS (Not tested)
 
 #### For developers:
