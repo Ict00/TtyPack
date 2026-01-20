@@ -1,7 +1,7 @@
 # TtyPack documentation
 
 ## Quick Start
-First of all, you should create empty directory. There two files are required: `manifest.json` that contains all the main information about your app and `idmap.json` that maps asset id to its location relatively to app.
+First of all, you should create a directory for your app. There two files are required: `manifest.json` that contains all the main information about your app and `idmap.json` that maps asset id to its location relatively to app.
 
 `manifest.json`:
 ```
@@ -57,7 +57,12 @@ Now that you made your first app, let's pack it! You'll have to use earlier comp
 $ ./TtyPack pack path/to/app/dir
 ```
 
-And then, if you did everything right, you'll get the `.ttypack` file, ready for execution. Alternatively, you can just run the app without packing it:
+And then, if you did everything right, you'll get the `.ttypack` file, ready for execution:
+```shell
+$ ./TtyPack run-file path/to/ttypack/file
+```
+
+**Alternatively**, you can just run the app without packing it:
 ```shell
 $ ./TtyPack run-dir path/to/app/dir
 ```
