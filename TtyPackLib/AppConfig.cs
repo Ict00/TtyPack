@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace TtyNetServer;
+namespace TtyPackLib;
 
 public static class AppConfig
 {

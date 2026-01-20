@@ -1,6 +1,5 @@
 using MessagePack;
 using Newtonsoft.Json;
-using TtyNetServer;
 
 namespace TtyPackLib;
 
