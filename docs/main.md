@@ -40,6 +40,9 @@ While most of Lua standart functionality is supported, some stuff like `require`
 * [Storage](https://github.com/Ict00/TtyPack/blob/master/docs/apis/storage_api.md)
 * [System](https://github.com/Ict00/TtyPack/blob/master/docs/apis/system_api.md)
 
+> **`type?` notation means that the argument is optional**. It's important to understand everything described in the `API` docs.
+
+
 So, `Hello, World!` app would look like this:
 
 `src/main.lua`
