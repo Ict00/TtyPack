@@ -56,6 +56,7 @@ public static class Permissions
     {
         var p = Get(id);
         if (p == null) return;
+        if (p.Level == PermissionLevel.Allow || p.Level == PermissionLevel.AllowOnce) return;
         
         Console.WriteLine($"{_app.Name} asks for {id} permission{(reason == null ? "" : $" for: {reason}")}\n[A] - Allow Always [O] - Allow Once [D] - Deny");
         PermissionLevel level = PermissionLevel.Deny;
