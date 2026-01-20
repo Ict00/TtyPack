@@ -15,7 +15,11 @@ public class ScriptModule : LuaRuntimeModule
         ScriptRun = new(async (context, _) =>
         {
             var script = context.GetArgument<string>(0);
-            var result = await context.State.DoStringAsync(script);
+            
+            var anotherState = LuaState.Create();
+            LuaImplementation.Init(anotherState, _assets);
+            
+            var result = await anotherState.DoStringAsync(script);
             return context.Return(result);
         });
 
@@ -31,8 +35,10 @@ public class ScriptModule : LuaRuntimeModule
             }
 
             var script = Encoding.UTF8.GetString(asset.Data);
+            var anotherState = LuaState.Create();
+            LuaImplementation.Init(anotherState, _assets);
 
-            var result = await context.State.DoStringAsync(script);
+            var result = await anotherState.DoStringAsync(script);
             return context.Return(result);
         });
     }
