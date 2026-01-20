@@ -80,7 +80,7 @@ public class AssetModule : LuaRuntimeModule
             
             _assets.Assets.Add(new(assetName, AssetType.Blob, data));
             
-            return new(0);
+            return new(context.Return(LuaValue.Nil));
         });
     }
 
