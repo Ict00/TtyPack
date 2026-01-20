@@ -22,3 +22,29 @@ There are two variants of asset representation. It's either `C#`'s `byte[]` or `
 
 > `assets.push(string asset_id, byte[]/string asset_value) -> nil`
 > * Add asset to **in-memory** asset list
+
+
+### Usage example
+`idmap.json`
+```json
+{
+  "main": "src/main.lua",
+  "important": "src/important.txt"
+}
+```
+
+`src/important.txt`
+```
+Hello, TtyPack!
+```
+
+`src/main.lua`
+```lua
+local asset = assets.get("important")
+console.println(asset.id, " is ", asset.type, " which has: ", asset.data)
+```
+
+Output should be:
+```
+important is textblob which has: Hello, TtyPack!
+```
