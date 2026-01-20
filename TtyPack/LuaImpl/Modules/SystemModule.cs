@@ -18,11 +18,15 @@ public class SystemModule : LuaRuntimeModule
         
         var table = new LuaTable();
         int i = 1;
-        foreach (var entry in Directory.EnumerateFileSystemEntries(dir, filter, option))
+        try
         {
-            table[i++] = entry;
+            foreach (var entry in Directory.EnumerateFileSystemEntries(dir, filter, option))
+            {
+                table[i++] = entry;
+            }
         }
-        
+        catch { /* Ignore */ }
+
         return new(context.Return(table));
     });
     
@@ -49,8 +53,16 @@ public class SystemModule : LuaRuntimeModule
         if (!Permissions.CheckPermission("fs.read")) return new (context.Return(LuaValue.Nil));
         
         var filename = context.GetArgument<string>(0);
-        var text = File.ReadAllText(filename);
-        
+        string text;
+        try
+        {
+            text = File.ReadAllText(filename);
+        }
+        catch
+        {
+            text = "";
+        }
+
         return new(context.Return(text));
     });
     
@@ -59,8 +71,17 @@ public class SystemModule : LuaRuntimeModule
         if (!Permissions.CheckPermission("fs.read")) return new (context.Return(LuaValue.Nil));
         
         var filename = context.GetArgument<string>(0);
-        var bytes = File.ReadAllBytes(filename);
+        byte[] bytes;
         
+        try
+        {
+            bytes = File.ReadAllBytes(filename);
+        }
+        catch
+        {
+            bytes = [];
+        }
+
         return new(context.Return(LuaValue.FromObject(bytes)));
     });
     
@@ -70,8 +91,11 @@ public class SystemModule : LuaRuntimeModule
         
         var filename = context.GetArgument<string>(0);
         var text = context.GetArgument<string>(1);
-        File.WriteAllText(filename, text);
-        
+        try
+        {
+            File.WriteAllText(filename, text);
+        } catch { /* Ignore */ }
+
         return new(context.Return(LuaValue.Nil));
     });
     
@@ -81,8 +105,11 @@ public class SystemModule : LuaRuntimeModule
         
         var filename = context.GetArgument<string>(0);
         var bytes = context.GetArgument<byte[]>(1);
-        File.WriteAllBytes(filename, bytes);
-        
+        try
+        {
+            File.WriteAllBytes(filename, bytes);
+        } catch { /* Ignore */  }
+
         return new(context.Return(LuaValue.Nil));
     });
     
