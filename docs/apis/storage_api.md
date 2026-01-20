@@ -7,6 +7,7 @@ Basically, every app has its own directory where all the artifacts are stored: `
 ### What are DataTables?
 `DataTable` is simplified representation of `LuaTable` which is easier to serialize/deserialize. Functions and recursive tables **ARE NOT SUPPORTED** and will be replaced with `nil`, mixed tables (like `{ 1, 2, x=10, 3}`) are not supported as well but only array part of table will be parsed.
 
+**ALSO NOTE: ALL `storage.get_X()` FUNCTIONS WILL RETURN DEFAULT VALUE, NOT NIL!** 
 ### Functions
 > `storage.commit() -> bool`
 > - Saves all the changes done. Returns `false` if the save was unsuccessful.
