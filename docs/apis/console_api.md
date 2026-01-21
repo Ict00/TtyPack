@@ -13,7 +13,7 @@ You'll work with this API most of your time, probably.
 >       control = bool,
 >       alt = bool,
 >       shift = bool,
->       key = int
+>       key = number
 >   }
 >   ```
 > - NOTE: `key` field corresponds to key number according to `C#`'s [ConsoleKey](https://learn.microsoft.com/en-us/dotnet/api/system.consolekey). 
@@ -27,10 +27,10 @@ You'll work with this API most of your time, probably.
 > `console.readln() -> string`
 > * Reads user input
 
-> `console.get_height() -> int`
+> `console.get_height() -> number`
 > * Get buffer (terminal) height
 
-> `console.get_width() -> int`
+> `console.get_width() -> number`
 > * Get buffer (terminal) width
 
 > `console.get_cursor() -> table`
@@ -38,8 +38,8 @@ You'll work with this API most of your time, probably.
 > - Returns such table:
 > - ```lua
 >   {
->       x = int,
->       y = int
+>       x = number,
+>       y = number
 >   }
 >   ```
 
