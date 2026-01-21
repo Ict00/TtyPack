@@ -1,7 +1,7 @@
 # TtyPack: Single-file Lua apps for the terminal.
 ### Under construction 🏗️
 TtyPack lets you create self-contained terminal applications using Lua.
-Package scripts, assets, and data into a single .ttypack file that runs anywhere with built-in secure sandboxing.
+Package scripts and other assets into a single .ttypack file that runs anywhere with built-in sandboxing.
 
 ### Why TtyPack?
 
