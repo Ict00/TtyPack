@@ -2,7 +2,7 @@
 ### Under construction 🏗️
 TtyPack lets you create self-contained terminal applications using Lua and C#-provided built-in modules. Think
 of it as of custom standart library + bundling tool.
-Package scripts, and other assets into a single .ttypack file that runs anywhere with built-in sandboxing.
+Package scripts, and other assets into a single .ttypack file that can be run anywhere using `TtyPack` with built-in sandboxing.
 
 > NOTE: TtyPack IS NOT built for dependency management in any way. It can bundle the app, and run the app. It won't add
 > or use any library (pure-Lua* library) until you add it as asset and use it.
