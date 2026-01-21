@@ -6,12 +6,11 @@ namespace TtyPack;
 [MessagePackObject]
 [Union(0, typeof(DataTable))]
 [Union(1, typeof(DataList))]
-[Union(2, typeof(DataInt))]
+[Union(2, typeof(DataNumber))]
 [Union(3, typeof(DataBool))]
 [Union(4, typeof(DataString))]
-[Union(5, typeof(DataFloat))]
-[Union(6, typeof(DataBytes))]
-[Union(7, typeof(DataNil))]
+[Union(5, typeof(DataBytes))]
+[Union(6, typeof(DataNil))]
 public abstract class DataUnit;
 
 [MessagePackObject]
@@ -27,9 +26,9 @@ public class DataList(List<DataUnit> units) : DataUnit
 }
 
 [MessagePackObject]
-public class DataInt(int value) : DataUnit
+public class DataNumber(double value) : DataUnit
 {
-    [Key(0)] public int Value { get; } = value;
+    [Key(0)] public double Value { get; } = value;
 }
 
 [MessagePackObject]
@@ -42,12 +41,6 @@ public class DataBool(bool value) : DataUnit
 public class DataString(string value) : DataUnit
 {
     [Key(0)] public string Value { get; } = value;
-}
-
-[MessagePackObject]
-public class DataFloat(float value) : DataUnit
-{
-    [Key(0)] public float Value { get; } = value;
 }
 
 [MessagePackObject]
@@ -111,14 +104,9 @@ public static class Lua2DataBridge
 
     private static DataUnit ParseOtherUnit(this LuaValue value)
     {
-        if (value.TryRead<int>(out var @int))
+        if (value.TryRead<double>(out var number))
         {
-            return new DataInt(@int);
-        }
-
-        if (value.TryRead<float>(out var @float))
-        {
-            return new DataFloat(@float);
+            return new DataNumber(number);
         }
 
         if (value.TryRead<bool>(out var @bool))
@@ -185,8 +173,7 @@ public static class Data2LuaBridge {
         if (any is DataTable table) return ParseTable(table);
         if (any is DataBool dataBool) return dataBool.Value;
         if (any is DataString dataString) return dataString.Value;
-        if (any is DataFloat dataFloat) return dataFloat.Value;
-        if (any is DataInt dataInt) return dataInt.Value;
+        if (any is DataNumber dataNumber) return dataNumber.Value;
         if (any is DataBytes dataBytes) return LuaValue.FromObject(dataBytes.Value);
         
         return LuaValue.Nil;

@@ -45,16 +45,10 @@ public class StorageModule : LuaRuntimeModule
         return new(context.Return(Storage.GetString(id)));
     });
     
-    private static readonly LuaFunction GetInt = new((context, _) =>
+    private static readonly LuaFunction GetNumber = new((context, _) =>
     {
         string id = context.GetArgument<string>(0);
-        return new(context.Return(Storage.GetInt(id)));
-    });
-    
-    private static readonly LuaFunction GetFloat = new((context, _) =>
-    {
-        string id = context.GetArgument<string>(0);
-        return new(context.Return(Storage.GetFloat(id)));
+        return new(context.Return(Storage.GetNumber(id)));
     });
     
     private static readonly LuaFunction GetBool = new((context, _) =>
@@ -77,15 +71,10 @@ public class StorageModule : LuaRuntimeModule
         {
             Storage.PutString(id, text);
         }
-
-        if (value.TryRead(out int intValue))
+        
+        if (value.TryRead(out double doubleValue))
         {
-            Storage.PutInt(id, intValue);
-        }
-
-        if (value.TryRead(out float floatValue))
-        {
-            Storage.PutFloat(id, floatValue);
+            Storage.PutNumber(id, doubleValue);
         }
 
         if (value.TryRead(out bool boolValue))
@@ -110,8 +99,7 @@ public class StorageModule : LuaRuntimeModule
             ["put"] = Put,
             ["has"] = HasKey,
             ["remove"] = RemoveKey,
-            ["get_int"] = GetInt,
-            ["get_float"] = GetFloat,
+            ["get_number"] = GetNumber,
             ["get_bool"] = GetBool,
             ["get_bytes"] = GetBytes,
             ["get_string"] = GetString,

@@ -103,8 +103,7 @@ public static class Storage
     public static void PutByteArray(string key, byte[] value) =>  _localStorage[key] = value;
     public static void PutString(string key, string value) => PutByteArray(key, Encoding.UTF8.GetBytes(value));
     public static void PutBool(string key, bool value) => PutByteArray(key, MessagePackSerializer.Serialize(value));
-    public static void PutInt(string key, int value) => PutByteArray(key, MessagePackSerializer.Serialize(value));
-    public static void PutFloat(string key, float value) => PutByteArray(key, MessagePackSerializer.Serialize(value));
+    public static void PutNumber(string key, double value) => PutByteArray(key, MessagePackSerializer.Serialize(value));
     public static void PutTable(string key, LuaTable value) => PutByteArray(key, MessagePackSerializer.Serialize(value.FromLua()));
 
     public static byte[] GetByteArray(string key)
@@ -159,29 +158,16 @@ public static class Storage
         }
     }
     
-    public static int GetInt(string key)
+    public static double GetNumber(string key)
     {
         var  data = GetByteArray(key);
         try
         {
-            return MessagePackSerializer.Deserialize<int>(data);
+            return MessagePackSerializer.Deserialize<double>(data);
         }
         catch
         {
             return 0;
-        }
-    }
-    
-    public static float GetFloat(string key)
-    {
-        var  data = GetByteArray(key);
-        try
-        {
-            return MessagePackSerializer.Deserialize<float>(data);
-        }
-        catch
-        {
-            return 0f;
         }
     }
 }
