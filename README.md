@@ -4,11 +4,6 @@ TtyPack lets you create self-contained terminal applications using Lua and C#-pr
 of it as of custom standart library + bundling tool.
 Package scripts, and other assets into a single .ttypack file that runs anywhere with built-in sandboxing.
 
-> NOTE: TtyPack IS NOT built for dependency management in any way. It can bundle the app, and run the app. It won't add
-> or use any library (pure-Lua* library) until you add it as asset and use it.
-> 
-> _`*pure-Lua library` means that not only it doesn't rely on `FFI`, but also it's fully compatible with `TtyPack`'s limitations and `API`s_
-
 ### Why TtyPack?
 
 Not only TtyPack makes it easier to share your apps, but also it's more safe because of _Permissions_.
