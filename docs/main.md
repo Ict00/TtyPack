@@ -68,3 +68,19 @@ $ ./TtyPack run-file path/to/ttypack/file
 ```shell
 $ ./TtyPack run-dir path/to/app/dir
 ```
+#### Scripting limitations
+It's really important. `TtyNet` has these modules disabled:
+* io
+* os
+* debug
+
+These functions are disabled as well:
+* require
+* dofile
+* print
+* load
+* loadfile
+
+In exchange, `Console`, `System` and `Script` modules are provided.
+
+Also, `C-based` libraries are not supported because of `Lua CSharp` itself (`TtyPack` depends on it)
