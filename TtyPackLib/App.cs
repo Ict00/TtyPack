@@ -40,7 +40,10 @@ public class App(string name, string author, string desc, List<Asset> assets)
         [".lua"] = AssetType.Script,
         [".xml"] = AssetType.TextBlob,
         [".json"] = AssetType.TextBlob,
-        [".txt"] = AssetType.TextBlob
+        [".txt"] = AssetType.TextBlob,
+        [".md"] = AssetType.TextBlob,
+        [".yaml"] = AssetType.TextBlob,
+        [".toml"] = AssetType.TextBlob,
     };
 
     public static App? FromFile(string filePath)
