@@ -1,7 +1,6 @@
 # TtyPack: Single-file Lua apps for the terminal.
 ### Under construction 🏗️
-TtyPack lets you create self-contained terminal applications using Lua and C#-provided built-in modules. Think
-of it as of custom standart library + bundling tool.
+TtyPack lets you create self-contained terminal applications using Lua.
 Package scripts, assets, and data into a single .ttypack file that runs anywhere with built-in secure sandboxing.
 
 ### Why TtyPack?
@@ -19,16 +18,6 @@ Also, using TtyPack you are given a lot of different APIs:
 
 So that development experience is way better.
 
-
-### Limitations
-Due to `Lua CSharp` limitations `C-based Lua` libraries are not supported.
-Also, `Os`, `Io` and `Debug` libraries are disabled for sandboxing reasons. But `TtyPack` offers permission-based `System` module in exchange.
-There are a lot of different modules (`API`s) planned:
-
-* Net
-* Json
-* Serialization
-* ...and more, if **you** suggest more
 
 #### How to use it?
 
