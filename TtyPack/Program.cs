@@ -59,7 +59,7 @@ switch (args[0])
         Help();
         break;
     case "version":
-        Console.WriteLine("TtyPack v0.1 [BETA]");
+        Console.WriteLine("TtyPack v0.2 [BETA]");
         break;
 }
 
