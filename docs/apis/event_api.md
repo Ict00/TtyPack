@@ -28,7 +28,7 @@ Events, yes. Events can be `created`, `subscribed` to, `unsubscribed` from and `
 ```
 
 `src/other.lua`
-```
+```lua
 function b(msg)
 	console.println("Message received by other: ", msg)
 end

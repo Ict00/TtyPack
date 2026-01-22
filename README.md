@@ -21,6 +21,8 @@ Also, using TtyPack you are given a lot of different APIs:
 * Script
 * Storage
 * System
+* Json
+* Network (WIP)
 
 So that development experience is way better.
 
@@ -29,9 +31,7 @@ Due to `Lua CSharp` limitations `C-based Lua` libraries are not supported.
 Also, `Os`, `Io` and `Debug` libraries are disabled for sandboxing reasons. But `TtyPack` offers permission-based `System` module in exchange.
 There are a lot of different modules (`API`s) planned:
 
-* Net
-* Json
-* Serialization
+* Net (partially implemented)
 * ...and more, if **you** suggest more
 
 #### How to use it?

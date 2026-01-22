@@ -39,6 +39,8 @@ While most of Lua standart functionality is supported, some stuff like `require`
 * [Permissions](https://github.com/Ict00/TtyPack/blob/master/docs/apis/permission_api.md)
 * [Storage](https://github.com/Ict00/TtyPack/blob/master/docs/apis/storage_api.md)
 * [System](https://github.com/Ict00/TtyPack/blob/master/docs/apis/system_api.md)
+* [Json](https://github.com/Ict00/TtyPack/blob/master/docs/apis/json_api.md)
+* [Network](https://github.com/Ict00/TtyPack/blob/master/docs/apis/network_api.md)
 * [Script](https://github.com/Ict00/TtyPack/blob/master/docs/apis/script_api.md)
 
 

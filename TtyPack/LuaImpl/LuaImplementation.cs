@@ -36,7 +36,9 @@ public static class LuaImplementation
                 new PermissionModule(),
                 new ScriptModule(),
                 new StorageModule(),
-                new SystemModule()
+                new SystemModule(),
+                new JsonModule(),
+                new NetworkModule()
             ];
         }
 

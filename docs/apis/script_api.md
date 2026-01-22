@@ -18,6 +18,22 @@ First time script gets executed (except for `script.run("...")` as it has only b
 > `script.borrow(string script_id, string var_or_function_name) -> ...`
 > * Borrow the variable/function of specified script
 
+> `script.import(string script_id) -> nil`
+> * Imports the script to current scope (without overriding existing variables)
+
+> `script.try_catch(function try_function, function? catch_function) -> nil/...`
+> * Tries to execute the `try_function` and return the values it returns (`try-function` should NOT have any parameters).
+> * If exception was thrown during execution, `catch_function` would be executed and `nil` would be returned;
+> * Passing `catch_function` is optional, but if you do, it should have only ONE parameter, `exception`:
+> * ```
+>   {
+>       message = string,
+>       source = string,
+>       traceback = string
+>   }
+>   ```
+
+
 ### Usage example
 `idmap.json`
 ```json
